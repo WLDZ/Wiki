@@ -1,0 +1,53 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{% if entry %} 
+    {{ title }}
+{% else%}
+    Not Found   
+{% endif %}
+
+{% endblock %}
+
+{% block body %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <h3  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </h3>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+
+
+{% if entry %}
+    
+<div  markdown=1 >{{ entry |safe}}</div>
+
+<div>
+    <form action="{% url 'edit_page_data' %}"  method="post">
+        {% csrf_token %}
+        <button name="subject" type="submit" value={{title}}>Edit Entry</button>
+        
+    </form>
+</div>
+
+
+
+
+</form>
+
+
+
+{% elif entry == None %}
+    <h1>Error 404 - Page does not exist</h1>
+
+ {% endif %}
+
+
+ 
+
+
+
+{% endblock %}
+

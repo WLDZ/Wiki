@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+
+{{ title }}
+
+{% endblock %}
+
+{% block body %}
+
+
+
+
+<div class="formitem" style="width:40% ; height:60px">
+    <form action="{% url 'save_edit' %}" method="POST">
+        {% csrf_token %}
+        {{form1}}
+        <button name="save_entry" type="submit" value={{title}}>Save Entry</button>
+       </form>  
+
+
+     
+</div>
+
+
+
+
+{% endblock %}

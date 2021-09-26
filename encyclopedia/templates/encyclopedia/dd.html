@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+
+    Submitted Data
+{% endblock %}
+
+{% block body %}
+
+
+{% if text %} 
+    {{text}}
+{% else%}
+  <h1> Nothing Is Entered Yet. </h1> 
+{% endif %}
+
+
+{% endblock %}

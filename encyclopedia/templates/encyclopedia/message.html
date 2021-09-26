@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+
+{{ title }}
+
+{% endblock %}
+
+{% block body %}
+
+
+<ul class="messages">
+    {% for message in messages %}
+    <h3  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </h3>
+    {% endfor %}
+</ul>
+
+
+<form action="{% url 'index' %}" >
+    <button name="Main_menu" type="submit" value={{title}}>Home</button>
+ 
+</form>  
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "encyclopedia/layout.html" %}
+
+
+
+{% block body %}
+
+{% if messages %}
+<div class="formitem" style="width:40% ; height:60px">
+<ul class="messages">
+    {% for message in messages %}
+    <h3  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </h3>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+
+<div class="formitem" style="width:40% ; height:60px">
+    <form action="{% url 'add' %}" method="POST">
+        {% csrf_token %}
+        {{title}}  
+        {{textform}}
+        <input type="submit" value="Create New Page" name ="message_frm">
+       </form>  
+       
+<!--        
+    <div>
+    
+        <form action="dd">
+            <input type="submit" value="View All Data Entered In This Session" name ="message_frm">
+        </form>
+    </div>
+ -->      
+
+     
+</div>
+
+
+
+
+{% endblock %}
